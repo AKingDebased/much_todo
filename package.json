@@ -1,0 +1,25 @@
+{
+  "name": "much_todo",
+  "version": "1.0.0",
+  "description": "a full stack todo app for all you todo-ing needs",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AKingDebased/much_todo.git"
+  },
+  "author": "gabriel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AKingDebased/much_todo/issues"
+  },
+  "homepage": "https://github.com/AKingDebased/much_todo#readme"
+}
