@@ -1,44 +1,57 @@
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+    Collapse,
+    Navbar,
+    NavbarToggler,
+    NavbarBrand,
+    Nav,
+    NavItem,
+    NavLink,
+    Container,
+    Row,
+    Col,
+    Jumbotron,
+	Button,
+	ListGroup,
+	ListGroupItem
+} from 'reactstrap';
 
-console.log('front end loaded!');
 class App extends Component {
-	state = {
-		data: null
-	};
+    constructor(props) {
+        super(props);
 
-	componentDidMount() {
-		console.log('mounting component');
-		this.hitBackend()
-			.then(res => this.setState({ data: res.express }))
-			.catch(err => console.log('nope', err));
-	}
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            isOpen: false
+        };
+    }
+    toggle() {
+        this.setState({
+            isOpen: !this.state.isOpen
+        });
+    }
+    render() {
+        return (
+			<Container>
+				<h1 class="text-center">much todo app</h1>
 
-	hitBackend = async () => {
-		console.log('hit the back end');
-		const response = await fetch('/test_backend');
-		const body = await response.json();
+				<ListGroupSample />
+			</Container>
+        );
+    }
+}
 
-		if (response.status !== 200) {
-			throw Error(body.message);
-		}
-
-		return body;
-	}
-
-	render() {
-		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<h1 className="App-title">Welcome to React</h1>
-
-					<p className="App-intro">{this.state.data}</p>
-				</header>
-			</div>
-		);
-	}
+const ListGroupSample = (props) => {
+	return (
+	  <ListGroup>
+		<ListGroupItem>Cras justo odio</ListGroupItem>
+		<ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
+		<ListGroupItem>Morbi leo risus</ListGroupItem>
+		<ListGroupItem>Porta ac consectetur ac</ListGroupItem>
+		<ListGroupItem>Vestibulum at eros</ListGroupItem>
+	  </ListGroup>
+	); 
 }
 
 export default App;
